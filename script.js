@@ -21,23 +21,72 @@
 
 Проверить, чтобы все работало без ошибок в консоли */
 
-'use strict';
+"use strict";
 
-var numberOfFilms = +prompt("How much?","");
+let numberOfFilms;
+function start() {
+  numberOfFilms = +prompt("How much?", "");
+  while (numberOfFilms == "" || numberOfFilms == null || isNaN(numberOfFilms)) {
+    numberOfFilms = +prompt("How much?", "");
+  }
+}
+
+start();
+
 let personalMovieDB = {
-"count":numberOfFilms,
-"movies":{},
-"actors":{},
-"genres":[],
-"privat":false
-
+  count: numberOfFilms,
+  movies: {},
+  actors: {},
+  genres: [],
+  privat: false
 };
-const a = prompt("Last vieved?","");
-const b = prompt("Last vieved?","");
-const c = prompt("Your mark?","");
-const d = prompt("Your mark?","");
-personalMovieDB.movies[a] = c;
-personalMovieDB.movies[b] = d;
+
+function checkPrivat() {
+  let boo = personalMovieDB.privat;
+  if (boo === false) {
+    console.log(personalMovieDB);
+  } else {
+    alert("Denied");
+  }
+}
+checkPrivat();
+
+function rememberMyFilms() {
+  let N = 2; /*personalMovieDB.count;*/
+  for (let i = 0; i < N; i++) {
+    const a = prompt("Last vieved?", ""),
+      b = prompt("Your mark?", "");
+
+    if (a != null && b != null && a != "" && b != "" && a.length < 50) {
+      personalMovieDB.movies[a] = b;
+      console.log("done");
+    } else {
+      console.log("error");
+      i--;
+    }
+  }
+}
+rememberMyFilms();
+function writeYourGenres() {
+  for (let i = 0; i < 3; i++) {
+    let a = prompt("Favorite genre? " + (i+1)+ ".", "");
+    personalMovieDB.genres[i] = (i+1) + "." + a;
+  }
+}
+writeYourGenres();
+
+function detectPersonalLevel() {
+  if (personalMovieDB.count < 10) {
+    console.log("Regular");
+  } else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
+    console.log("Big Fan");
+  } else if (personalMovieDB.count >= 30) {
+    console.log("WOW! junkie");
+  } else {
+    console.log("Error");
+  }
+}
+
+detectPersonalLevel();
+
 console.log(personalMovieDB);
-
-
