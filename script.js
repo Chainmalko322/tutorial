@@ -39,9 +39,8 @@ let personalMovieDB = {
   actors: {},
   genres: [],
   privat: false,
-  user_status: {}
+  user_status: {},
 };
-
 
 function rememberMyFilms() {
   let N = 2; /*personalMovieDB.count;*/
@@ -61,28 +60,26 @@ function rememberMyFilms() {
 
 //rememberMyFilms();
 
+function writeYourGenres() {
+  // MY MOZG {
+  //   for (let i = 0; i < 3; i++) {
+  //     let a = prompt("Favorite genre? " + (i+1) + ".", "");
+  //     personalMovieDB.genres[i] = (i+1) + "." + a;
+  //   }
+  // }
 
-function writeYourGenres() 
-// MY MOZG {
-//   for (let i = 0; i < 3; i++) {
-//     let a = prompt("Favorite genre? " + (i+1) + ".", "");
-//     personalMovieDB.genres[i] = (i+1) + "." + a;
-//   }
-// }
+  // {
+  //       for (let i = 1; i <= 3; i++) {
+  //         let genre = prompt(`Favorite genre? ${i}`);
+  //         personalMovieDB.genres[i-1] = genre;
+  //       }
+  //     }
 
-// {
-//       for (let i = 1; i <= 3; i++) {
-//         let genre = prompt(`Favorite genre? ${i}`);
-//         personalMovieDB.genres[i-1] = genre;
-//       }
-//     }
-
-//short
-{
-          for (let i = 1; i <= 3; i++) {
-            personalMovieDB.genres[i-1] = prompt(`Favorite genre? ${i}`);
-          }
-        }
+  //short
+  for (let i = 1; i <= 3; i++) {
+    personalMovieDB.genres[i - 1] = prompt(`Favorite genre? ${i}`);
+  }
+}
 writeYourGenres();
 
 function detectPersonalLevel() {
@@ -99,14 +96,12 @@ function detectPersonalLevel() {
 
 detectPersonalLevel();
 
-
-
 function checkPrivat() {
-    let boo = personalMovieDB.privat;
-    if (boo === false) {
-      console.log(personalMovieDB);
-    } else {
-      alert("DB showing denied");
-    }
+  let boo = personalMovieDB.privat;
+  if (boo === false) {
+    console.log(personalMovieDB);
+  } else {
+    alert("DB showing denied");
   }
-  checkPrivat();
+}
+checkPrivat();
